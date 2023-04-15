@@ -87,3 +87,4 @@ a.out
 # R output
 *Rplots.pdf
 *.Rhistory
+rslow5.Rcheck

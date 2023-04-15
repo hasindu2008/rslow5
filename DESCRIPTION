@@ -1,11 +1,11 @@
 Package: rslow5
 Type: Package
-Title: Test wrapper for slow5
+Title: R wrapper for slow5lib
 Version: 0.1.0
 Date: 2023-04-15
 Author: Hasindu Gamaarachchi <hasindu@unsw.edu.au>
 Maintainer: Hasindu Gamaarachchin <hasindu@unsw.edu.au>
-Description: A package that slow5 for R
+Description: R wrapper for slow5lib
 License: MIT
 Depends: R
 Collate: rslow5.R
