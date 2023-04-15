@@ -1,0 +1,9 @@
+# See Section 1.2.1 "Using 'Makevars'" of Writing R Extensions
+# cran.r-project.org/doc/manuals/R-exts.pdf
+PKG_CFLAGS=
+PKG_CPPFLAGS=-Islow5lib/include
+#PKG_LIBS=-Lslow5lib/lib/ -lslow5
+PKG_LIBS=slow5lib/lib/libslow5.a
+$(SHLIB): slow5lib/lib/libslow5.a
+slow5lib/lib/libslow5.a:
+	@(pwd && set -x && $(MAKE) -C slow5lib zstd=$(zstd) no_simd=$(no_simd) zstd_local=$(zstd_local) lib/libslow5.a CC="$(CC)" CFLAGS="$(CFLAGS)")

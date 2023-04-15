@@ -1,0 +1,8 @@
+# Import required packages
+# none so far
+# Load dynamic libraries (shared object files)
+useDynLib(rslow5)
+# Export functions defined in R code
+export("rslow5_load")
+
+#thank to https://www.r-bloggers.com/2021/07/using-r-packaging-a-c-library-in-15-minutes-2/ and chat-gpt

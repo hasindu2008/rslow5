@@ -1,0 +1,6 @@
+[submodule "slow5lib"]
+	path = slow5lib
+	url = https://github.com/hasindu2008/slow5lib
+[submodule "src/slow5lib"]
+	path = src/slow5lib
+	url = https://github.com/hasindu2008/slow5lib.git
