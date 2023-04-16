@@ -3,7 +3,7 @@
 all: slow5lib rslow5
 
 slow5lib:
-	$(MAKE) -C src/slow5lib zstd=$(zstd) no_simd=$(no_simd) zstd_local=$(zstd_local) lib/libslow5.a
+	$(MAKE) -C src/slow5lib zstd=$(zstd) no_simd=$(no_simd) zstd_local=$(zstd_local) slow5_mt=1 lib/libslow5.a
 
 rslow5:
 	R CMD build ./
@@ -13,7 +13,7 @@ rslow5:
 clean:
 	rm -rf rslow5_*.tar.gz rslow5.Rcheck
 	$(MAKE) -C src/slow5lib clean
-	R CMD REMOVE rslow5 -l ~/R/
+	-R CMD REMOVE rslow5 -l ~/R/
 
 test: rslow5
 	test/test.sh

@@ -1,0 +1,8 @@
+^.*\.Rproj$         # Designates the directory as an RStudio Project
+^\.Rproj\.user$     # Used by RStudio for temporary files
+^\.github$          # GitHub Actions workflows
+src/slow5lib/.github
+src/slow5lib/examples
+src/slow5lib/test/
+./src/rslow5.so
+./src/rslow5.o
