@@ -1,9 +1,8 @@
 # rslow5
 
-rslow5 is an R wrapper for slow5lib. It is under development and the API interface is subject to change.
-I am not a R user,  so feedback and suggestions from R users are appreciated to make the API interface R-user-friendly.
+rslow5 is an R wrapper for [slow5lib](https://github.com/hasindu2008/slow5lib) for reading [S/BLOW5](https://github.com/hasindu2008/slow5lib) files. It is under development and the API interface is subject to change. I am not a R user, so [feedback and suggestions from R users are appreciated](https://github.com/hasindu2008/rslow5/issues) to make the API interface R-user-friendly. Features are currently minimal and will be implemented based on demand which you can request [here](https://github.com/hasindu2008/rslow5/issues).
 
-Note: Version of rslow5 is independent of the slow5lib.
+Note that the version of rslow5 is independent of the slow5lib.
 
 # Installation
 
