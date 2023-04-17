@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-20.04
     container: ubuntu:14.04
     steps:
+    - name: install git
+      run: apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:git-core/ppa && apt-get update -y && apt-get install git -y
     - name: install packages
       run: sudo apt-get update && sudo apt-get install -y zlib1g-dev gcc g++ autoconf automake make r-base git
     - uses: actions/checkout@v2
@@ -28,6 +30,8 @@ jobs:
     runs-on: ubuntu-20.04
     container: ubuntu:16.04
     steps:
+    - name: install git
+      run: apt-get update && apt-get install -y software-properties-common && add-apt-repository ppa:git-core/ppa && apt-get update -y && apt-get install git -y
     - name: install packages
       run: apt-get update && apt-get install -y zlib1g-dev gcc g++ autoconf automake make r-base git
     - uses: actions/checkout@v2
