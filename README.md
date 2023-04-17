@@ -8,9 +8,10 @@ Note that the version of rslow5 is independent of the slow5lib.
 
 ```
 # clone
-git clone --recursive https://github.com/hasindu2008/rslow5
+git clone --recursive https://github.com/hasindu2008/rslow5 && cd rslow5
 
 # build the package
+touch src/slow5lib/lib/KEEP # a hack till I find a propoer way to prevent R builder from not including empty directories
 R CMD build ./
 
 # install
