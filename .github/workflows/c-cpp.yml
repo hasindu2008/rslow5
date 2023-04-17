@@ -47,7 +47,7 @@ jobs:
     container: ubuntu:18.04
     steps:
     - name: install packages
-      run:  apt-get update && apt-get install -y zlib1g-dev valgrind gcc g++ autoconf automake make r-base git
+      run:  export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -y zlib1g-dev valgrind gcc g++ autoconf automake make r-base git
     - uses: actions/checkout@v2
       with:
         submodules: recursive
