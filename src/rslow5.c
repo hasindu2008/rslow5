@@ -100,7 +100,7 @@ SEXP rslow5_idx_unload(SEXP sp_ptr){
     if (sp == NULL) {
         Rf_error("External pointer is invalid or has been destroyed\n");
     }
-    fprintf(stderr, "Unloading index\n");
+    //fprintf(stderr, "Unloading index\n");
     slow5_idx_unload(sp);
     return R_NilValue;
 }
@@ -208,7 +208,7 @@ SEXP rslow5_get_core(SEXP sp_ptr, SEXP numthread, SEXP batchsize, int8_t rand, S
         nrecs = slow5_get_next_batch(mt, read_batch, batch_size);
     }
 
-    fprintf(stderr, "nrecs: %d\n", nrecs);
+    //fprintf(stderr, "nrecs: %d\n", nrecs);
 
     // Create R vectors for each column of the data frame
     // data types make consistent with C
@@ -248,7 +248,7 @@ SEXP rslow5_get_core(SEXP sp_ptr, SEXP numthread, SEXP batchsize, int8_t rand, S
         SET_VECTOR_ELT(raw_signal, i, raw_signal_i);
         UNPROTECT(1);
 
-        fprintf(stderr, "read_id: %s\n", rec->read_id);
+        //fprintf(stderr, "read_id: %s\n", rec->read_id);
         if(aux != NULL){
             SET_STRING_ELT(channel_number, i, mkChar(get_channel_number(rec)));
             REAL(median_before)[i] = get_median_before(rec);
