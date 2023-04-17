@@ -7,32 +7,36 @@ on:
     branches: [ '*' ]
 
 jobs:
-  # ubuntu_14:
-  #   name: ubuntu_14
-  #   runs-on: ubuntu-20.04
-  #   container: ubuntu:14.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: install packages
-  #     run: sudo apt-get update && sudo apt-get install -y zlib1g-dev gcc g++ autoconf automake make R
-  #   - name: env
-  #     run: lsb_release -a &&  ldd --version && gcc --version && g++ --version
-  #   - name: build
-  #     run:  make
-  #   - name: test
-  #     run: make test
-  # ubuntu_16:
-  #   name: Ubuntu 16
-  #   runs-on: ubuntu-20.04
-  #   container: ubuntu:16.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: install packages
-  #     run: apt-get update && apt-get install -y zlib1g-dev gcc g++ autoconf automake make R
-  #   - name: build
-  #     run: make -j8
-  #   - name: test
-  #     run: make test
+  ubuntu_14:
+    name: ubuntu_14
+    runs-on: ubuntu-20.04
+    container: ubuntu:14.04
+    steps:
+    - name: install packages
+      run: sudo apt-get update && sudo apt-get install -y zlib1g-dev gcc g++ autoconf automake make r-base git
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: env
+      run: lsb_release -a &&  ldd --version && gcc --version && g++ --version
+    - name: build
+      run:  make
+    - name: test
+      run: make test
+  ubuntu_16:
+    name: Ubuntu 16
+    runs-on: ubuntu-20.04
+    container: ubuntu:16.04
+    steps:
+    - name: install packages
+      run: apt-get update && apt-get install -y zlib1g-dev gcc g++ autoconf automake make r-base git
+    - uses: actions/checkout@v2
+      with:
+        submodules: recursive
+    - name: build
+      run: make -j8
+    - name: test
+      run: make test
   ubuntu_18:
     name: Ubuntu 18
     runs-on: ubuntu-20.04
@@ -67,6 +71,8 @@ jobs:
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: recursive
     - name: install packages
       run: brew install R
     - name: build
