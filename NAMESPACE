@@ -11,5 +11,3 @@ export("rslow5_get")
 export("rslow5_close")
 export("rslow5_idx_load")
 export("rslow5_idx_unload")
-
-#thank to https://www.r-bloggers.com/2021/07/using-r-packaging-a-c-library-in-15-minutes-2/ and chat-gpt

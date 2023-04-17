@@ -355,7 +355,7 @@ SEXP rslow5_load(SEXP pathname) {
 
     int64_t i = 0;
 
-    fprintf(stderr, "nrecs: %ld\n", nrecs);
+    //fprintf(stderr, "nrecs: %ld\n", nrecs);
 
     //iterate through the file until end
     while((ret = slow5_get_next(&rec,sp)) >= 0){
@@ -374,7 +374,7 @@ SEXP rslow5_load(SEXP pathname) {
         SET_VECTOR_ELT(raw_signal, i, raw_signal_i);
         UNPROTECT(1);
 
-        fprintf(stderr, "read_id: %s\n", rec->read_id);
+        //fprintf(stderr, "read_id: %s\n", rec->read_id);
 
         // printf("%s\t",rec->read_id);
         // uint64_t len_raw_signal = rec->len_raw_signal;

@@ -3,6 +3,17 @@
 ^\.github$          # GitHub Actions workflows
 src/slow5lib/.github
 src/slow5lib/examples
-src/slow5lib/test/
+src/slow5lib/test
+src/slow5lib/python
+src/slow5lib/docs
+src/slow5lib/setup.py
+src/slow5lib/MANIFEST.in
+src/slow5lib/.git
+src/slow5lib/.travis.yml
 ./src/rslow5.so
 ./src/rslow5.o
+rslow5_0.1.0.tar.gz
+.*\.so$
+.*\.a$
+.*\.o$
+tmp

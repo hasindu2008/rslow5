@@ -1,19 +1,23 @@
-.PHONY: slow5lib slow5lib clean test
+.PHONY: clean test build check
 
-all: slow5lib rslow5
+all: build
 
-slow5lib:
-	$(MAKE) -C src/slow5lib zstd=$(zstd) no_simd=$(no_simd) zstd_local=$(zstd_local) slow5_mt=1 lib/libslow5.a
-
-rslow5:
+build:
+	-mkdir tmp/
+	touch src/slow5lib/lib/KEEP
 	R CMD build ./
-#	R CMD check rslow5_*.tar.gz
-	R CMD INSTALL -c --preclean -l ~/R/ rslow5_*.tar.gz
+	R CMD INSTALL -c --preclean -l ./tmp/ rslow5_*.tar.gz
+
+check: build
+	R CMD check rslow5_*.tar.gz
 
 clean:
 	rm -rf rslow5_*.tar.gz rslow5.Rcheck
 	$(MAKE) -C src/slow5lib clean
-	-R CMD REMOVE rslow5 -l ~/R/
+	-R CMD REMOVE rslow5 -l ./tmp/
 
-test: rslow5
+test: build
 	test/test.sh
+
+valgrind: build
+	test/test.sh mem=1

@@ -3,7 +3,7 @@
 PKG_CFLAGS=
 PKG_CPPFLAGS=-Islow5lib/include
 #PKG_LIBS=-Lslow5lib/lib/ -lslow5
-PKG_LIBS=slow5lib/lib/libslow5.a
-#$(SHLIB): slow5lib/lib/libslow5.a
-# slow5lib/lib/libslow5.a:
-# 	@(pwd && set -x && $(MAKE) -C slow5lib zstd=$(zstd) no_simd=$(no_simd) zstd_local=$(zstd_local) lib/libslow5.a CC="$(CC)" CFLAGS="$(CFLAGS)")
+PKG_LIBS=slow5lib/lib/libslow5.a -lz -lm -lpthread
+$(SHLIB):slow5lib/lib/libslow5.a
+slow5lib/lib/libslow5.a:
+	@($(MAKE) -C slow5lib zstd=$(zstd) no_simd=$(no_simd) zstd_local=$(zstd_local) slow5_mt=1 lib/libslow5.a CC="$(CC)")
